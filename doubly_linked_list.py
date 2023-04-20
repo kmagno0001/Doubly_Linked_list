@@ -9,11 +9,9 @@ class Doubly_linked_list :
         str_list = ''
 
         iterator: Node = self.head_node
-        while iterator.get_next_node() != None:
+        while iterator != None:
             str_list += f" {iterator.get_value()} "
             iterator = iterator.get_next_node()
-        else:
-            str_list += f" {iterator.get_value()} "   
         
         return str_list
 

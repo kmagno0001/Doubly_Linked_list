@@ -15,3 +15,5 @@ lst.remove(1)
 lst.remove(5)
 
 print(lst)
+lst.add(590)
+print(lst)
