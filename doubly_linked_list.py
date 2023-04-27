@@ -2,7 +2,7 @@ from node import Node
 
 class Doubly_linked_list :
     def __init__(self, value: any) -> None:
-        self.head_node = Node(value)
+        self.head_node: Node = Node(value)
         self.len = 1
 
     def __repr__(self) -> str:
@@ -15,13 +15,13 @@ class Doubly_linked_list :
         
         return str_list
 
-    def add(self, value: any, index: int = None) -> None:
+    def add(self, value: any = None, index: int = None) -> None:
         iterator_node: Node = self.head_node
 
         match index: 
             case None: 
-                while iterator_node.get_next_node() is not None:
-                    iterator_node =  iterator_node.get_next_node()
+                while iterator_node is not None:
+                    iterator_node = iterator_node.get_next_node()
 
                 iterator_node.set_next_node(Node(value, iterator_node))
 
@@ -31,7 +31,8 @@ class Doubly_linked_list :
                 self.head_node = new_node
 
             case deful:
-                if index >= self.len: return
+                if index >= self.len: 
+                    return
                
                 counter = 0
                 while iterator_node.get_next_node() != None:
@@ -48,10 +49,10 @@ class Doubly_linked_list :
 
         self.len += 1
 
-    def remove(self, value) -> None:
+    def remove(self, value: any) -> None:
         iterator: Node = self.head_node
         
-        while iterator.get_next_node() != None:
+        while iterator != None:
             if iterator.get_value() == value:
                 break
             iterator = iterator.get_next_node()
@@ -62,12 +63,11 @@ class Doubly_linked_list :
         if prev_node is not None:
             prev_node.set_next_node(next_node)
         else:
-            iterator.set_prev_node(None)
-            self.head_node = iterator.get_next_node()
+            self.head_node = iterator.get_next_node()     
             
         if next_node is not None:
             next_node.set_prev_node(prev_node)
-       
+
 
         
        

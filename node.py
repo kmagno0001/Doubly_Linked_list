@@ -7,10 +7,10 @@ class Node:
     def get_value(self) -> any:
         return self.value
     
-    def get_next_node(self):
+    def get_next_node(self) -> any:
         return self.next_node
     
-    def get_prev_node(self) :
+    def get_prev_node(self) -> any:
         return self.prev_node
 
     def set_next_node(self, new_next_node) -> None:
